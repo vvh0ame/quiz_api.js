@@ -1,8 +1,7 @@
 from requests import get
 
-
 class QuizAPI:
-	def __init__(self, api_key: str):
+	def __init__(self, api_key: str) -> None:
 		self.api = "https://quizapi.io/api"
 		self.api_key = api_key
 		self.headers = {
@@ -10,7 +9,7 @@ class QuizAPI:
 			"x-api-key": self.api_key
 		}
 
-	def get_random_quiz(self, limit: int = 1):
+	def get_random_quiz(self, limit: int = 1) -> dict:
 		return get(
 			f"{self.api}/v1/questions?limit={limit}",
 			headers=self.headers).json()
@@ -18,7 +17,7 @@ class QuizAPI:
 	def get_quiz_by_category(
 			self,
 			category: str,
-			limit: int = 1):
+			limit: int = 1) -> dict:
 		return get(
 			f"{self.api}/v1/questions?category={category}&limit={limit}",
 			headers=self.headers).json()
@@ -26,7 +25,7 @@ class QuizAPI:
 	def get_quiz_by_difficulty(
 			self,
 			difficulty: str,
-			limit: int = 1):
+			limit: int = 1) -> dict:
 		return get(
 			f"{self.api}/v1/questions?difficulty={difficulty}&limit={limit}",
 			headers=self.headers).json()
@@ -34,7 +33,7 @@ class QuizAPI:
 	def get_quiz_by_tags(
 			self,
 			tags: str,
-			limit: int = 1):
+			limit: int = 1) -> dict:
 		return get(
 			f"{self.api}/v1/questions?tags={tags}&limit={limit}",
 			headers=self.headers).json()
