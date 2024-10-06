@@ -1,10 +1,14 @@
-# quiz_api.py
+# quiz_api.js
 Web-API for [quizapi.io](https://quizapi.io) website which is a SaaS which lets you test your knowledge on a wide variety of technical topics
 
 ## Example
-```python
-import quiz_api
-quiz_api = quiz_api.QuizAPI(api_key="")
-random_quiz = quiz_api.get_random_quiz()
-print(random_quiz)
+```JavaScript
+async function main() {
+	const { QuizApi } = require("./quiz_api.js.js")
+	const quizApi = new QuizApi("apiKey")
+	const randomQuiz = await quizApi.getRandomQuiz()
+	console.log(randomQuiz)
+}
+
+main()
 ```
